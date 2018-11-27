@@ -23,4 +23,5 @@ ls_alunos* cria_lista_alunos()
 	lista->cabeca = (no*) malloc(sizeof(no));
 	lista->cabeca->ant = NULL;
 	lista->cabeça->prox = NULL;
+	return lista;
 }
