@@ -16,9 +16,12 @@ int main(void)
     case 'B':
       busca
     case 'L':
-    case 'A';
-    case 'R';
-    case 'F';
+      ;
+    case 'A':
+      ;
+    case 'R':
+      ;
+    case 'F':
       break;
 }
       
