@@ -10,11 +10,11 @@ typedef struct ls_alunos_st
 
 //Prototipação
 ls_alunos* cria_lista_alunos();
-void cadastra_aluno(alunos*);
-no* busca_aluno(alunos*, char);
-void cadastra_com_arquivo(alunos*, char);
-void aprovados(alunos*);
-void reprovados(alunos*);
+void cadastra_aluno(ls_alunos*);
+no* busca_aluno(ls_alunos*, char);
+void cadastra_com_arquivo(ls_alunos*, char);
+void aprovados(ls_alunos*);
+void reprovados(ls_alunos*);
 
 //Estrutura das funções
 ls_alunos* cria_lista_alunos()
