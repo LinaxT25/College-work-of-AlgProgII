@@ -11,7 +11,7 @@ typedef struct ls_alunos_st
 //Prototipação
 ls_alunos* cria_lista_alunos();
 void cadastra_aluno(ls_alunos*);
-no* busca_aluno(ls_alunos*);
+void busca_aluno(ls_alunos*);
 void cadastra_com_arquivo(ls_alunos*);
 void aprovados(ls_alunos*);
 void reprovados(ls_alunos*);
