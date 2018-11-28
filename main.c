@@ -3,27 +3,34 @@
 #include "interface.h"
 #include "lista_alunos.h"
 
-int main(void)
+int main()
 {
   char option;
   
   option=interface()
   option=toupper(option);
-  switch
+  
+  do
   {
-    case 'C':
-      cadastra_aluno(ls_alunos*);
-    case 'B':
-      busca
-    case 'L':
-      ;
-    case 'A':
-      ;
-    case 'R':
-      ;
-    case 'F':
-      break;
-}
+    switch(option)
+    {
+     case 'C':
+       cadastra_aluno(ls_alunos*);
+     case 'B':
+       busca
+     case 'L':
+       ;
+     case 'A':
+       ;
+     case 'R':
+       ;
+     case 'F':
+       break;
+     default:
+       printf("Opcão inválida\n"); 
+    }
+  }while(option != 'F');
+  
       
       
       
