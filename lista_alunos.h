@@ -69,8 +69,7 @@ void busca_aluno(ls_alunos* lista)
 		if(strstr(p->al->Nome, nome) != NULL)
 		{
 			a++;
-			printf("%s %s %f %f %f %f\n", p->al->Nome, p->al->RA, p->al->P1, p->al->P2, p->al->Trab,
-				p->al->PO);
+			printf("%s %s \n", p->al->Nome, p->al->RA, p->al->P1);
 		}
 	}
 
