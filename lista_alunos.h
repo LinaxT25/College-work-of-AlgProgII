@@ -53,3 +53,26 @@ void cadastra_aluno(ls_alunos* lista)
 	if(q != NULL)
 		q->ant = novo_no;
 }
+
+void busca_aluno(ls_alunos* lista)
+{
+	char nome[SIZE];
+	no* p;
+	p = lista->cabeca->prox;
+	int a = 0;
+
+	printf("Insira o nome do aluno a ser buscado:\n");
+	scanf("%s", nome);
+
+	for(p = lista->cabeca->prox; p != NULL; p = p->prox)
+	{
+		if(strstr(p->al->Nome, nome) != NULL)
+		{
+			a++;
+			printf("%s %s %f %f %f %f\n", p->al->Nome, p->al->RA, p->al->P1, p->al->P2, p->al->Trab,
+				p->al->PO);
+		}
+	}
+
+	printf("%d", a);
+}
