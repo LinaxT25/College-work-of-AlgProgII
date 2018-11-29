@@ -9,4 +9,5 @@
 	float P1, P2;
 	float Trab;
 	float PO;
+	float media;
 } aluno;
