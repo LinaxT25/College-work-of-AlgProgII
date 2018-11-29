@@ -15,6 +15,7 @@ void busca_aluno(ls_alunos*);
 void cadastra_com_arquivo(ls_alunos*);
 void aprovados(ls_alunos*);
 void reprovados(ls_alunos*);
+float media_aluno(float, float, float, float);
 
 //Estrutura das funções
 ls_alunos* cria_lista_alunos()
@@ -74,4 +75,17 @@ void busca_aluno(ls_alunos* lista)
 	}
 
 	printf("%d", a);
+}
+
+float media_aluno(float P1, float P2, float PO, float T) 
+{
+	float media;
+	if(PO > P1)
+		media = (PO + P2)*0.35 + T*0.3;
+	else if(PO > P2)
+		media = (P1 + PO)*0.35 + T*0.3;
+	else
+		media = (P1 + P2)*0.35 + T*0.3;
+	
+	return media;
 }
