@@ -45,7 +45,7 @@ void cadastra_aluno(ls_alunos* lista)
 		p = q;
 		q = q->prox;
 	}
-    /* Fills ant and prox of novo_no in end of list */
+    /* Point novo_no's ant and prox to p and q, and make them point back */
 	novo_no->ant = p;
 	novo_no->prox = q;
 	p->prox = novo_no;
