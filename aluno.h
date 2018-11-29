@@ -5,7 +5,7 @@
  typedef struct aluno_st
 {
 	char Nome[SIZE];
-	int RA;
+	unsigned int RA;
 	float P1, P2;
 	float Trab;
 	float PO;
