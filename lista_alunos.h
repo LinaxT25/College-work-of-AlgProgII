@@ -1,14 +1,9 @@
 //Data: 26/11/18
-//Definição da lista e prototipação de funções
-#include <no.h>
+//All functions used in work stay here
+#include <aluno.h>
 #include <bibliotecas.h>
 
-typedef struct ls_alunos_st
-{
-	no* cabeca;
-} ls_alunos;
-
-//Prototipação
+/* Functions Prototyping */
 ls_alunos* cria_lista_alunos();
 void cadastra_aluno(ls_alunos*);
 void busca_aluno(ls_alunos*);
@@ -17,7 +12,7 @@ void aprovados(ls_alunos*);
 void reprovados(ls_alunos*);
 float media_aluno(float, float, float, float);
 
-//Estrutura das funções
+/* Strucuture of functions */
 ls_alunos* cria_lista_alunos()
 {
 	ls_alunos* lista = (ls_alunos*) malloc(sizeof(ls_alunos));
@@ -31,17 +26,18 @@ void cadastra_aluno(ls_alunos* lista)
 {
 	aluno* novo_aluno;
 	no *novo_no, *p, *q;
+	
+	/* Create new space in list for student and fills the data field */
 	novo_aluno = (aluno*) malloc(sizeof(aluno));
-
 	printf("Insira os dados do aluno(Nome, RA, Nota da P1, da P2, do Trabalho e da PO):\n");
 	scanf("%s %u %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
-	// calculando a media
+	/* Calculate average of test */
 		novo_aluno->media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
-	
+	/* Create a new nó for next student */
 	novo_no = (no*) malloc(sizeof(no));
 	novo_no->al = novo_aluno;
-
+        /* Founding end of list */
 	p = lista->cabeca;
 	q = lista->cabeca->prox;
 	while(q != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
@@ -49,7 +45,7 @@ void cadastra_aluno(ls_alunos* lista)
 		p = q;
 		q = q->prox;
 	}
-
+        /* Fills ant and prox of novo_no with position to end of no */
 	novo_no->ant = p;
 	novo_no->prox = q;
 	p->prox = novo_no;
