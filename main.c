@@ -17,7 +17,7 @@ int main()
      case 'C':
        cadastra_aluno(ls_alunos*);
      case 'B':
-       busca
+       busca_aluno(lista);
      case 'L':
        ;
      case 'A':
