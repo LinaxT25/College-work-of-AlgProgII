@@ -34,9 +34,11 @@ void cadastra_aluno(ls_alunos* lista)
 	novo_aluno = (aluno*) malloc(sizeof(aluno));
 
 	printf("Insira os dados do aluno(Nome, RA, Nota da P1, da P2, do Trabalho e da PO):\n");
-	scanf("%s %s %f %f %f %f", novo_aluno->Nome, novo_aluno->RA, &(novo_aluno->P1), &(novo_aluno->P2),
+	scanf("%s %d %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
-
+	// calculando a media
+		novo_aluno->media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
+	
 	novo_no = (no*) malloc(sizeof(no));
 	novo_no->al = novo_aluno;
 
@@ -70,7 +72,7 @@ void busca_aluno(ls_alunos* lista)
 		if(strstr(p->al->Nome, nome) != NULL)
 		{
 			a++;
-			printf("%s %s \n", p->al->Nome, p->al->RA, p->al->P1);
+			printf("%s %d %f\n", p->al->Nome, p->al->RA, p->al->media);
 		}
 	}
 
