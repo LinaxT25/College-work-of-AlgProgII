@@ -34,10 +34,10 @@ void cadastra_aluno(ls_alunos* lista)
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
 		novo_aluno->media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
-	/* Create a new nó for next student */
+	/* Create a new nó for new student */
 	novo_no = (no*) malloc(sizeof(no));
 	novo_no->al = novo_aluno;
-        /* Founding end of list */
+     /* Founding end of list */
 	p = lista->cabeca;
 	q = lista->cabeca->prox;
 	while(q != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
@@ -45,7 +45,7 @@ void cadastra_aluno(ls_alunos* lista)
 		p = q;
 		q = q->prox;
 	}
-        /* Fills ant and prox of novo_no with position to end of no */
+    /* Fills ant and prox of novo_no in end of list */
 	novo_no->ant = p;
 	novo_no->prox = q;
 	p->prox = novo_no;
