@@ -11,6 +11,7 @@ typedef struct aluno_st
 	float Trab;
 	float PO;
 	float media;
+	bool situacao;
 } aluno;
 
 /* Struct with no(positions) of list */
