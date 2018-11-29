@@ -70,7 +70,7 @@ void busca_aluno(ls_alunos* lista)
 			if(p->al->situacao == true)
 				printf("%s %u %f Aprovado!\n", p->al->Nome, p->al->RA, p->al->media);
 			else
-				printf("%s %u %f\n Reprovado!", p->al->Nome, p->al->RA, p->al->media);
+				printf("%s %u %f Reprovado!\n", p->al->Nome, p->al->RA, p->al->media);
 		}
 	}
 
