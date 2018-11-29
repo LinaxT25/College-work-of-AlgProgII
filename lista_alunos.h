@@ -57,7 +57,6 @@ void busca_aluno(ls_alunos* lista)
 {
 	char nome[SIZE];
 	no* p;
-	p = lista->cabeca->prox;
 	int a = 0;
 
 	printf("Insira o nome do aluno a ser buscado:\n");
