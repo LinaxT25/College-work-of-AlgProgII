@@ -10,7 +10,7 @@ typedef struct aluno_st
 	float P1, P2;
 	float Trab;
 	float PO;
-	float media;
+	float Media;
 	bool situacao;
 } aluno;
 
