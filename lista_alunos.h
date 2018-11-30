@@ -89,3 +89,47 @@ float media_aluno(float P1, float P2, float PO, float T)
 	
 	return media;
 }
+
+void aprovados(ls_alunos* lista)
+{
+    FILE *aprovados;
+    no *p;
+    unsigned int contagem = 0;
+
+    aprovados = fopen("aprovados.txt","w");
+    if(aprovados != NULL)
+    {
+        for(p = lista->cabeca->prox; p!=NULL; p=p->prox)
+        {
+            if(p->al->situacao == true)
+            {
+               contagem++;
+               fprintf(aprovados, "%s %f\n", p->al->Nome, p->al->media); 
+            }
+        }
+        fprintf(aprovados, "O numero total de aprovados e de: %d\n", contagem);
+        fclose(aprovados);
+    }
+}
+
+void reprovados(ls_alunos* lista)
+{
+    FILE *reprovados;
+    no *p;
+    unsigned int contagem = 0;
+
+    reprovados = fopen("reprovados.txt","w");
+    if(reprovados != NULL)
+    {
+        for(p = lista->cabeca->prox; p!=NULL; p=p->prox)
+        {
+            if(p->al->situacao == false)
+            {
+                contagem++;
+                fprintf(reprovados, "%s %f\n", p->al->Nome, p->al->media);
+            }
+        }
+        fprintf(reprovados, "O numero total de reprovados e de: %d\n", contagem);
+        fclose(reprovados);
+    }
+}
