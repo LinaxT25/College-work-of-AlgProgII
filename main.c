@@ -6,24 +6,26 @@
 int main()
 {
   char option;
+  ls_alunos *lista;
   
-  option=interface()
-  option=toupper(option);
+  lista = cria_lista_alunos();
+  option = interface();
+  option = toupper(option);
   
   do
   {
     switch(option)
     {
      case 'C':
-       cadastra_aluno(ls_alunos*);
+       cadastra_aluno(lista);
      case 'B':
        busca_aluno(lista);
      case 'L':
        ;
      case 'A':
-       ;
+       aprovados(lista);
      case 'R':
-       ;
+       reprovados(lista);
      case 'F':
        break;
      default:
