@@ -34,6 +34,11 @@ void cadastra_aluno(ls_alunos* lista)
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
 		novo_aluno->media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
+	/* Setting true or false for situacao */
+	if(novo_aluno->media >= 6.0)
+		novo_aluno->situacao = true;
+	else
+		novo_aluno->situacao = false;
 	/* Create a new nó for new student */
 	novo_no = (no*) malloc(sizeof(no));
 	novo_no->al = novo_aluno;
