@@ -24,7 +24,7 @@ void cadastra_aluno(ls_alunos* lista)
 	scanf("%s %u %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
-		novo_aluno->media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
+		novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
 	/* Setting true or false for situacao */
 	if(novo_aluno->media >= 6.0)
 		novo_aluno->situacao = true;
@@ -64,9 +64,9 @@ void busca_aluno(ls_alunos* lista)
 		{
 			a++;
 			if(p->al->situacao == true)
-				printf("%s %u %f Aprovado!\n", p->al->Nome, p->al->RA, p->al->media);
+				printf("%s %u %f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 			else
-				printf("%s %u %f Reprovado!\n", p->al->Nome, p->al->RA, p->al->media);
+				printf("%s %u %f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 		}
 	}
 
@@ -87,6 +87,68 @@ float media_aluno(float P1, float P2, float PO, float T)
 }
 
 // Leitura cadastro de alunos através de arquivos
+void cadastra_aluno_arquivo(ls_alunos* lista)
+{
+	// Declaração das variaveis locais
+	char nome_arquivo[SIZE];
+	FILE *pt;
+	int contagem = 0;
+	int aux = 0;
+	aluno* novo_aluno;
+	no *novo_no, *p, *q;
+	
+	// lendo o nome do arquivo e abrindo
+	scanf("%s", nome_arquivo);
+	pt = fopen(nome_arquivo, "r");
+	
+	// se pt!= NULL então o arquivo foi aberto
+	if(pt != NULL)
+	{	//enquanto o auxiliar do fscanf não der erro
+		while(aux != -1)
+		{	// alocando espaço para o aluno e lendo as informações do mesmo
+			novo_aluno = (aluno*) malloc(sizeof(aluno));
+			aux = fscanf(pt, "%s %u %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
+				     &(novo_aluno->Trab), &(novo_aluno->PO));
+			
+			// Calculando a média
+			novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
+			
+			// Verificando a situação do aluno
+			if(novo_aluno->Media >= 6.0)
+				novo_aluno->situacao = true;
+			else
+				novo_aluno->situacao = false;
+			
+			// criando nó para o estudante
+			novo_no = (no*) malloc(sizeof(no));
+			novo_no->al = novo_aluno;
+			
+			// localizando em ordem alfabética onde deve ficar esse aluno 
+			p = lista->cabeca
+			q = lista->cabeca->prox;
+			while(q->prox != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
+			{
+				p = q;
+				q = q->prox;
+			}
+			
+			// colocando o aluno dentro da lista
+			novo_no->ant = p;
+			novo_no->prox = q;
+			p->prox = novo_no;
+			if(q != NULL)
+				q->ant = novo_no;
+			
+			// garantindo que o contador contará apenas alunos cadastrados corretamente
+			if(aux != -1)
+				contagem++;
+		}
+		
+		printf("%d alunos foram cadastrados!\n", contagem);		
+	}
+	else
+		printf("Falha na abertura do arquivo!\n");
+}	
 
 
 void aprovados(ls_alunos* lista)
