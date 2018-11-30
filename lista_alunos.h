@@ -26,7 +26,7 @@ void cadastra_aluno(ls_alunos* lista)
 	/* Calculate average of test */
 		novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
 	/* Setting true or false for situacao */
-	if(novo_aluno->media >= 6.0)
+	if(novo_aluno->Media >= 6.0)
 		novo_aluno->situacao = true;
 	else
 		novo_aluno->situacao = false;
@@ -166,7 +166,7 @@ void aprovados(ls_alunos* lista)
             if(p->al->situacao == true)
             {
                contagem++;
-               fprintf(aprovados, "%s %f\n", p->al->Nome, p->al->media); 
+               fprintf(aprovados, "%s %f\n", p->al->Nome, p->al->Media); 
             }
         }
         fprintf(aprovados, "O numero total de aprovados e de: %u\n", contagem);
@@ -188,7 +188,7 @@ void reprovados(ls_alunos* lista)
             if(p->al->situacao == false)
             {
                 contagem++;
-                fprintf(reprovados, "%s %f\n", p->al->Nome, p->al->media);
+                fprintf(reprovados, "%s %f\n", p->al->Nome, p->al->Media);
             }
         }
         fprintf(reprovados, "O numero total de reprovados e de: %u\n", contagem);
