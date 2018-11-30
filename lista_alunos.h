@@ -143,10 +143,11 @@ void cadastra_aluno_arquivo(ls_alunos* lista)
 			if(aux != -1)
 				contagem++;
 		}
-		
+		// fechando o arquivo e printando a quantidade de alunos cadastrados
+		fclose(pt);
 		printf("%d alunos foram cadastrados!\n", contagem);		
 	}
-	else
+	else	// caso o arquivo não consiga ser aberto
 		printf("Falha na abertura do arquivo!\n");
 }	
 
