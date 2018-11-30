@@ -3,15 +3,6 @@
 #include <aluno.h>
 #include <bibliotecas.h>
 
-/* Functions Prototyping */
-ls_alunos* cria_lista_alunos();
-void cadastra_aluno(ls_alunos*);
-void busca_aluno(ls_alunos*);
-void cadastra_com_arquivo(ls_alunos*);
-void aprovados(ls_alunos*);
-void reprovados(ls_alunos*);
-float media_aluno(float, float, float, float);
-
 /* Strucuture of functions */
 ls_alunos* cria_lista_alunos()
 {
@@ -42,7 +33,7 @@ void cadastra_aluno(ls_alunos* lista)
 	/* Create a new nó for new student */
 	novo_no = (no*) malloc(sizeof(no));
 	novo_no->al = novo_aluno;
-     /* Founding end of list */
+    /* Founding end of list */
 	p = lista->cabeca;
 	q = lista->cabeca->prox;
 	while(q != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
