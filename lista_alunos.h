@@ -86,6 +86,9 @@ float media_aluno(float P1, float P2, float PO, float T)
 	return media;
 }
 
+// Leitura cadastro de alunos através de arquivos
+
+
 void aprovados(ls_alunos* lista)
 {
     FILE *aprovados;
