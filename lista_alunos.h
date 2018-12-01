@@ -21,7 +21,15 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 	/* Create new space in list for student and fills the data field */
 	novo_aluno = (aluno*) malloc(sizeof(aluno));
 	printf("Insira os dados do aluno(Nome, RA, Nota da P1, da P2, do Trabalho e da PO):\n");
-	scanf("%s %u %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
+	for(int i=0; i<SIZE; i++)
+	{	
+		armazena=getchar();
+		if(isdigit(armazena) == 0)
+			novo_aluno->Nome[i]=armazena;
+		else if(isdigit(armazena) != 0 || armazena == ' ')
+			break;
+	}
+	scanf("%s %f %f %f %f", novo_aluno->RA, &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
 		novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
