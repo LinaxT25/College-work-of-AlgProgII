@@ -36,7 +36,7 @@ int main()
      default:
        printf("Opcão inválida\n"); 
     }
-   printf("Por favor digite o que deseja fazer a seguir:\n");
+   printf("\nPor favor digite o que deseja fazer a seguir:\n");
    getchar();
    option=getchar();
    option = toupper(option);
