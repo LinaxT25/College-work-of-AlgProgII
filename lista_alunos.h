@@ -17,6 +17,7 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 {
 	aluno* novo_aluno;
 	no *novo_no, *p, *q;
+	char armazena;
 	
 	/* Create new space in list for student and fills the data field */
 	novo_aluno = (aluno*) malloc(sizeof(aluno));
@@ -24,11 +25,20 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 	for(int i=0; i<SIZE; i++)
 	{	
 		armazena=getchar();
-		if(isdigit(armazena) == 0 && armazena != ' ')
-			novo_aluno->Nome[i]=armazena;
-		else break;
+		if(isdigit(armazena) == 0)
+			novo_aluno->Nome[i] = armazena;
+		else
+		{
+			novo_aluno->RA[0] = armazena;
+			for(int j=1; j<MAX; j++)
+			{
+				armazena=getchar();
+				novo_aluno->RA[j] = armazena;
+			}
+			break;
+		}
 	}
-	scanf("%s %f %f %f %f", novo_aluno->RA, &(novo_aluno->P1), &(novo_aluno->P2),
+	scanf("%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
 		novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
@@ -131,7 +141,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 			novo_no->al = novo_aluno;
 			
 			// localizando em ordem alfabética onde deve ficar esse aluno 
-			p = lista->cabeca
+			p = lista->cabeca;
 			q = lista->cabeca->prox;
 			while(q->prox != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
 			{
