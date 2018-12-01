@@ -17,11 +17,11 @@ int main()
     switch(option)
     {
      case 'C':
-       cadastra_aluno(lista);
+       cadastra_aluno(lista, media_aluno);
      case 'B':
        busca_aluno(lista);
      case 'L':
-       cadastra_aluno_arquivo(lista);
+       cadastra_aluno_arquivo(lista, media_aluno);
      case 'A':
        aprovados(lista);
      case 'R':
