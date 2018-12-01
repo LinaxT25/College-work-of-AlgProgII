@@ -1,5 +1,5 @@
 //Date:27/11/2018
-//Função Principal
+//Main Function
 #include "interface.h"
 #include "lista_alunos.h"
 
@@ -21,7 +21,7 @@ int main()
      case 'B':
        busca_aluno(lista);
      case 'L':
-       ;
+       cadastra_aluno_arquivo(lista);
      case 'A':
        aprovados(lista);
      case 'R':
@@ -31,7 +31,10 @@ int main()
      default:
        printf("Opcão inválida\n"); 
     }
-  }while(option != 'F');
+  } while(option != 'F');
+  
+  return 0;
+}
   
       
       
