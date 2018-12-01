@@ -30,11 +30,11 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 		else
 		{
 			novo_aluno->RA[0] = armazena;
-			for(int j=1; j<MAX; j++)
+			for(int j=1; j<MAX-1; j++)
 			{
-				armazena=getchar();
-				novo_aluno->RA[j] = armazena;
+				novo_aluno->RA[j] = getchar();
 			}
+			novo_aluno->RA[13] = '\0';
 			break;
 		}
 	}
@@ -81,9 +81,9 @@ void busca_aluno(ls_alunos* lista)
 		{
 			a++;
 			if(p->al->situacao == true)
-				printf("%s %s %.2f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%s%s%.2f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 			else
-				printf("%s %s %.2f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%s%s%.2f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 		}
 	}
 
@@ -183,7 +183,7 @@ void aprovados(ls_alunos* lista)
             if(p->al->situacao == true)
             {
                contagem++;
-               fprintf(aprovados, "%s %.2f", p->al->Nome, p->al->Media); 
+               fprintf(aprovados, "%s%.2f", p->al->Nome, p->al->Media); 
             }
         }
         fprintf(aprovados, "\nO numero total de aprovados e de: %u", contagem);
@@ -205,7 +205,7 @@ void reprovados(ls_alunos* lista)
             if(p->al->situacao == false)
             {
                 contagem++;
-                fprintf(reprovados, "%s %.2f", p->al->Nome, p->al->Media);
+                fprintf(reprovados, "%s%.2f", p->al->Nome, p->al->Media);
             }
         }
         fprintf(reprovados, "\nO numero total de reprovados e de: %u", contagem);
