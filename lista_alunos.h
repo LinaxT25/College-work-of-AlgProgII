@@ -24,10 +24,9 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 	for(int i=0; i<SIZE; i++)
 	{	
 		armazena=getchar();
-		if(isdigit(armazena) == 0)
+		if(isdigit(armazena) == 0 && armazena != ' ')
 			novo_aluno->Nome[i]=armazena;
-		else if(isdigit(armazena) != 0 || armazena == ' ')
-			break;
+		else break;
 	}
 	scanf("%s %f %f %f %f", novo_aluno->RA, &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
@@ -72,13 +71,13 @@ void busca_aluno(ls_alunos* lista)
 		{
 			a++;
 			if(p->al->situacao == true)
-				printf("%s %u %f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%s %s %.2f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 			else
-				printf("%s %u %f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%s %s %.2f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 		}
 	}
 
-	printf("%d", a);
+	printf("Total de alunos encontrados: %d\n", a);
 }
 
 float media_aluno(float P1, float P2, float PO, float T) 
@@ -174,10 +173,10 @@ void aprovados(ls_alunos* lista)
             if(p->al->situacao == true)
             {
                contagem++;
-               fprintf(aprovados, "%s %f\n", p->al->Nome, p->al->Media); 
+               fprintf(aprovados, "%s %.2f", p->al->Nome, p->al->Media); 
             }
         }
-        fprintf(aprovados, "O numero total de aprovados e de: %u\n", contagem);
+        fprintf(aprovados, "\nO numero total de aprovados e de: %u", contagem);
         fclose(aprovados);
     }
 }
@@ -196,10 +195,10 @@ void reprovados(ls_alunos* lista)
             if(p->al->situacao == false)
             {
                 contagem++;
-                fprintf(reprovados, "%s %f\n", p->al->Nome, p->al->Media);
+                fprintf(reprovados, "%s %.2f", p->al->Nome, p->al->Media);
             }
         }
-        fprintf(reprovados, "O numero total de reprovados e de: %u\n", contagem);
+        fprintf(reprovados, "\nO numero total de reprovados e de: %u", contagem);
         fclose(reprovados);
     }
 }
