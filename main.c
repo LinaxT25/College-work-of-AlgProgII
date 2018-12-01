@@ -12,28 +12,34 @@ int main()
   option = interface();
   option = toupper(option);
   
-  do
+   do
   {
     switch(option)
     {
      case 'C':
        cadastra_aluno(lista, media_aluno);
+       break;
      case 'B':
        busca_aluno(lista);
+       break;
      case 'L':
        cadastra_aluno_arquivo(lista, media_aluno);
+       break;
      case 'A':
        aprovados(lista);
+       break;
      case 'R':
        reprovados(lista);
-     case 'F':
        break;
+     case 'F':
+       return 0;
      default:
        printf("Opcão inválida\n"); 
     }
-  } while(option != 'F');
-  
-  return 0;
+   printf("Por favor digite o que deseja fazer a seguir:\n");
+   option=getchar();
+   option = toupper(option);
+  } while (option != 'F');
 }
   
       
