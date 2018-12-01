@@ -1,7 +1,7 @@
 //Data: 26/11/18
 //All functions used in work stay here
-#include <aluno.h>
-#include <bibliotecas.h>
+#include "aluno.h"
+#include "bibliotecas.h"
 
 /* Strucuture of functions */
 ls_alunos* cria_lista_alunos()
@@ -9,7 +9,7 @@ ls_alunos* cria_lista_alunos()
 	ls_alunos* lista = (ls_alunos*) malloc(sizeof(ls_alunos));
 	lista->cabeca = (no*) malloc(sizeof(no));
 	lista->cabeca->ant = NULL;
-	lista->cabeça->prox = NULL;
+	lista->cabeca->prox = NULL;
 	return lista;
 }
 
