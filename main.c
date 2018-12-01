@@ -37,6 +37,7 @@ int main()
        printf("Opcão inválida\n"); 
     }
    printf("Por favor digite o que deseja fazer a seguir:\n");
+   getchar();
    option=getchar();
    option = toupper(option);
   } while (option != 'F');
