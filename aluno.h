@@ -1,12 +1,13 @@
 //Data: 26/11/18
 //All structs used in work stay here
 #define SIZE 50 //Used as width of students names
+#define MAX  10  //Used as widht of RA
 
 /* Struct with data of students */
 typedef struct aluno_st
 {
 	char Nome[SIZE];
-	unsigned int RA;
+	char RA[MAX];
 	float P1, P2;
 	float Trab;
 	float PO;
