@@ -13,7 +13,7 @@ ls_alunos* cria_lista_alunos()
 	return lista;
 }
 
-void cadastra_aluno(ls_alunos* lista)
+void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float))
 {
 	aluno* novo_aluno;
 	no *novo_no, *p, *q;
@@ -87,7 +87,7 @@ float media_aluno(float P1, float P2, float PO, float T)
 }
 
 // Leitura cadastro de alunos através de arquivos
-void cadastra_aluno_arquivo(ls_alunos* lista)
+void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,float,float))
 {
 	// Declaração das variaveis locais
 	char nome_arquivo[SIZE];
