@@ -114,6 +114,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	int aux = 0;
 	aluno* novo_aluno;
 	no *novo_no, *p, *q;
+	char armazena;
 	
 	// lendo o nome do arquivo e abrindo
 	scanf("%s", nome_arquivo);
@@ -125,7 +126,26 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 		while(aux != -1)
 		{	// alocando espaço para o aluno e lendo as informações do mesmo
 			novo_aluno = (aluno*) malloc(sizeof(aluno));
-			aux = fscanf(pt, "%s %u %f %f %f %f", novo_aluno->Nome, &(novo_aluno->RA), &(novo_aluno->P1), &(novo_aluno->P2),
+			
+			for (int i = 0; i < SIZE; i++)
+			{
+				armazena = fgetc(pt);
+				if(isdigit(armazena) == 0)
+					novo_aluno->Nome[i] = armazena;
+				else
+				{
+					novo_aluno->Nome[i-1] = '\0';
+					novo_aluno->RA[0] = armazena;
+					for (int j = 1; j < MAX; j++)
+					{
+						novo_aluno->RA[j] = fgetc(pt);
+					}
+					novo_aluno->RA[13] = '\0';
+					break;
+				}
+			}
+				
+			aux = fscanf(pt, "%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 				     &(novo_aluno->Trab), &(novo_aluno->PO));
 			
 			// Calculando a média
