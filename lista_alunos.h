@@ -42,7 +42,6 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 			break;
 		}
 	}
-	novo_aluno->Nome[0] = toupper(novo_aluno->Nome[0]);
 	scanf("%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
@@ -154,7 +153,6 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 					break;
 				}
 			}
-			novo_aluno->Nome[0] = toupper(novo_aluno->Nome[0]);
 				
 			aux = fscanf(pt, "%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 				     &(novo_aluno->Trab), &(novo_aluno->PO));
