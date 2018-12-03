@@ -156,7 +156,9 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 				
 			aux = fscanf(pt, "%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 				     &(novo_aluno->Trab), &(novo_aluno->PO));
-			
+			// se o fscanf teve problema ao escanear
+			if(aux == -1)
+				break;
 			// Calculando a média
 			novo_aluno->Media = media_aluno(novo_aluno->P1, novo_aluno->P2, novo_aluno->PO, novo_aluno->Trab);
 			
