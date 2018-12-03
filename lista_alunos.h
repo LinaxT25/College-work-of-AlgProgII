@@ -175,7 +175,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 			// localizando em ordem alfabética onde deve ficar esse aluno 
 			p = lista->cabeca;
 			q = lista->cabeca->prox;
-			while(q->prox != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
+			while(q != NULL && strcmp(q->al->Nome, novo_aluno->Nome) < 0)
 			{
 				p = q;
 				q = q->prox;
