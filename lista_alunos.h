@@ -39,6 +39,7 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 			break;
 		}
 	}
+	novo_aluno->Nome[0] = toupper(novo_aluno->Nome[0]);
 	scanf("%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 		&(novo_aluno->Trab), &(novo_aluno->PO));
 	/* Calculate average of test */
@@ -111,7 +112,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	char nome_arquivo[SIZE];
 	FILE *pt;
 	int contagem = 0;
-	int aux = 0;
+	int aux;
 	aluno* novo_aluno;
 	no *novo_no, *p, *q;
 	char armazena;
@@ -124,7 +125,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	// se pt!= NULL então o arquivo foi aberto
 	if(pt != NULL)
 	{	//enquanto o auxiliar do fscanf não der erro
-		while(aux != -1)
+		do
 		{	// alocando espaço para o aluno e lendo as informações do mesmo
 			novo_aluno = (aluno*) malloc(sizeof(aluno));
 			
@@ -145,6 +146,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 					break;
 				}
 			}
+			novo_aluno->Nome[0] = toupper(novo_aluno->Nome[0]);
 				
 			aux = fscanf(pt, "%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 				     &(novo_aluno->Trab), &(novo_aluno->PO));
@@ -181,10 +183,11 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 			// garantindo que o contador contará apenas alunos cadastrados corretamente
 			if(aux != -1)
 				contagem++;
-		}
+		}while(aux != -1);
+		
 		// fechando o arquivo e printando a quantidade de alunos cadastrados
 		fclose(pt);
-		printf("%d alunos foram cadastrados!\n", contagem);		
+		printf("\n%d alunos foram cadastrados!\n", contagem);		
 	}
 	else	// caso o arquivo não consiga ser aberto
 		printf("Falha na abertura do arquivo!\n");
