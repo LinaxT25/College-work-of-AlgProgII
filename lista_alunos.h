@@ -26,7 +26,10 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 	{	
 		armazena=getchar();
 		if(isdigit(armazena) == 0)
+		{
+			armazena = toupper(armazena);
 			novo_aluno->Nome[i] = armazena;
+		}
 		else
 		{
 			novo_aluno->Nome[i-1] = '\0';
@@ -76,6 +79,8 @@ void busca_aluno(ls_alunos* lista)
 
 	printf("Insira o nome do aluno a ser buscado:\n");
 	scanf("%s", nome);
+	for (int i = 0; i < strlen(nome); i++)
+		nome[i] = toupper(nome[i]);
 
 	for(p = lista->cabeca->prox; p != NULL; p = p->prox)
 	{
@@ -133,7 +138,10 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 			{
 				armazena = fgetc(pt);
 				if(isdigit(armazena) == 0)
+				{
+					armazena = toupper(armazena);
 					novo_aluno->Nome[i] = armazena;
+				}
 				else
 				{
 					novo_aluno->Nome[i-1] = '\0';
