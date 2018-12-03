@@ -117,6 +117,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	char armazena;
 	
 	// lendo o nome do arquivo e abrindo
+	printf("Entre com o nome do arquivo: \n");
 	scanf("%s", nome_arquivo);
 	pt = fopen(nome_arquivo, "r");
 	
