@@ -80,20 +80,21 @@ void busca_aluno(ls_alunos* lista)
 	scanf("%s", nome);
 	for (int i = 0; i < strlen(nome); i++)
 		nome[i] = toupper(nome[i]);
-
+	printf("\n);
+	       
 	for(p = lista->cabeca->prox; p != NULL; p = p->prox)
 	{
 		if(strstr(p->al->Nome, nome) != NULL)
 		{
 			a++;
 			if(p->al->situacao == true)
-				printf("%s %s %.2f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%-30s %-13s %.2f Aprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 			else
-				printf("%s %s %.2f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
+				printf("%-30s %-13s %.2f Reprovado!\n", p->al->Nome, p->al->RA, p->al->Media);
 		}
 	}
 
-	printf("Total de alunos encontrados: %d\n", a);
+	printf("\nTotal de alunos encontrados: %d\n", a);
 }
 
 float media_aluno(float P1, float P2, float PO, float T) 
