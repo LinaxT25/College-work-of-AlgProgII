@@ -216,10 +216,11 @@ void aprovados(ls_alunos* lista)
             if(p->al->situacao == true)
             {
                contagem++;
-               fprintf(aprovados, "%-30s %.2f", p->al->Nome, p->al->Media); 
+               fputs(p->al->Nome,aprovados);
+               fprintf(aprovados, " %.2f\n", p->al->Media);
             }
         }
-        fprintf(aprovados, "\nTotal: %u", contagem);
+        fprintf(aprovados, "Total: %u", contagem);
         fclose(aprovados);
     }
 }
@@ -238,10 +239,11 @@ void reprovados(ls_alunos* lista)
             if(p->al->situacao == false)
             {
                 contagem++;
-                fprintf(reprovados, "%-30s %.2f", p->al->Nome, p->al->Media);
+                fputs(p->al->Nome,reprovados);
+                fprintf(reprovados, " %.2f\n", p->al->Media);
             }
         }
-        fprintf(reprovados, "\nTotal: %u", contagem);
+        fprintf(reprovados, "Total: %u", contagem);
         fclose(reprovados);
     }
 }
