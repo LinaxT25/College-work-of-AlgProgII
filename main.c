@@ -9,7 +9,8 @@ int main()
   ls_alunos *lista;
   
   lista = cria_lista_alunos();
-  option = interface();
+  interface();
+  option = getchar();
   option = toupper(option);
   
    do
@@ -36,14 +37,9 @@ int main()
      default:
        printf("Opcão inválida\n"); 
     }
-   printf("\nPor favor digite o que deseja fazer a seguir:\n");
    getchar();
+   interface2();
    option=getchar();
    option = toupper(option);
   } while (option != 'F');
 }
-  
-      
-      
-      
-      
