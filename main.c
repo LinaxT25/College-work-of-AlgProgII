@@ -40,7 +40,8 @@ int main()
        printf("Opcão inválida\n"); 
     }
    getchar();
-   getchar();
+     if(option == 'B')
+       getchar();
    interface();
    option=getchar();
    option = toupper(option);
