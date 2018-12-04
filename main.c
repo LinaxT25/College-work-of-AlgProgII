@@ -7,6 +7,8 @@ int main()
 {
   char option;
   ls_alunos *lista;
+ 
+   printf("Bem-vindo ao sistema de gerenciamento de aluno ALPHA!\n");
   
   lista = cria_lista_alunos();
   interface();
@@ -38,7 +40,8 @@ int main()
        printf("Opcão inválida\n"); 
     }
    getchar();
-   interface2();
+   getchar();
+   interface();
    option=getchar();
    option = toupper(option);
   } while (option != 'F');
