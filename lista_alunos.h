@@ -22,6 +22,7 @@ void cadastra_aluno(ls_alunos* lista, float media_aluno(float,float,float,float)
 	/* Create new space in list for student and fills the data field */
 	novo_aluno = (aluno*) malloc(sizeof(aluno));
 	printf("Insira os dados do aluno(Nome, RA, Nota da P1, da P2, do Trabalho e da PO):\n");
+	getchar();
 	for(int i=0; i<SIZE; i++)
 	{	
 		armazena=getchar();
@@ -126,6 +127,7 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	printf("Entre com o nome do arquivo: \n");
 	scanf("%s", nome_arquivo);
 	pt = fopen(nome_arquivo, "r");
+	getchar();
 	
 	// se pt != NULL então o arquivo foi aberto
 	if(pt != NULL)
@@ -157,6 +159,9 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 				
 			aux = fscanf(pt, "%f %f %f %f", &(novo_aluno->P1), &(novo_aluno->P2),
 				     &(novo_aluno->Trab), &(novo_aluno->PO));
+			fgetc(pt);
+			fgetc(pt);
+			
 			// se o fscanf teve problema ao escanear
 			if(aux == -1)
 				break;
@@ -217,8 +222,7 @@ void aprovados(ls_alunos* lista)
             if(p->al->situacao == true)
             {
                contagem++;
-               fputs(p->al->Nome,aprovados);
-               fprintf(aprovados, " %.2f\n", p->al->Media);
+               fprintf(aprovados, "%-30s %.2f\n", p->al->Nome, p->al->Media);
             }
         }
         fprintf(aprovados, "Total: %u", contagem);
@@ -240,8 +244,7 @@ void reprovados(ls_alunos* lista)
             if(p->al->situacao == false)
             {
                 contagem++;
-                fputs(p->al->Nome,reprovados);
-                fprintf(reprovados, " %.2f\n", p->al->Media);
+                fprintf(reprovados, "%-30s %.2f\n", p->al->Nome, p->al->Media);
             }
         }
         fprintf(reprovados, "Total: %u", contagem);
