@@ -39,7 +39,6 @@ int main()
      default:
        printf("Opcão inválida\n"); 
     }
-    if(option != 'L')
       getchar();
     if(option == 'B')
       getchar();
