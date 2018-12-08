@@ -39,9 +39,10 @@ int main()
      default:
        printf("Opcão inválida\n"); 
     }
-   getchar();
-     if(option == 'B')
-       getchar();
+    if(option != 'L')
+      getchar();
+    if(option == 'B')
+      getchar();
    interface();
    option=getchar();
    option = toupper(option);
