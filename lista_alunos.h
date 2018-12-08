@@ -127,7 +127,6 @@ void cadastra_aluno_arquivo(ls_alunos* lista, float media_aluno(float,float,floa
 	printf("Entre com o nome do arquivo: \n");
 	scanf("%s", nome_arquivo);
 	pt = fopen(nome_arquivo, "r");
-	getchar();
 	
 	// se pt != NULL então o arquivo foi aberto
 	if(pt != NULL)
