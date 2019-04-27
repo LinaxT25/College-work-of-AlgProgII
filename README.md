@@ -4,6 +4,6 @@
 
 # Description 
 We need implement a student menagement system for discipline of Algorithms and Programming II, the students have this informations in our database: Name, RA(registry of student), note of first test, note of second test, note of pratic work and note of optional test.
-The program need the repectives options: Register new student, search student, read the archive with enumerated students, creating archive with approved students data sorted alphabetically and creating archive with disapproved students data sorted alphabetically, using the C language for this working.
+The program need the repectives options: Register new student, search student, read the archive with enumerated students, creating archive with approved students data sorted alphabetically and creating archive with disapproved students data sorted alphabetically, using the C language and Doubly Linked List for this working.
              
 
